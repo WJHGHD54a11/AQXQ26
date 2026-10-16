@@ -1,0 +1,57 @@
+//
+//  AQXQ26-Prefix.pch
+//  AQXQ26
+//
+//  对应原工程 WFChat-Prefix-Header.pch，只保留「我的」模块用到的部分。
+//  XQQChatClient / XQQChatUIKit / AppService 尚未迁移，由 XQQMineServices.h 代替。
+//
+
+#ifndef AQXQ26_Prefix_pch
+#define AQXQ26_Prefix_pch
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+
+// 第 2 步：登录模块已迁入，开启 XQQCommonHelper 里的登录验证码方法
+#define XQQ_MINE_HAS_LOGIN_MODULE 1
+
+#define WFCCString(key) NSLocalizedStringFromTable(key, @"wfc", nil)
+#define LocalizedString(key) NSLocalizedStringFromTable(key, @"InfoPlist", nil)
+
+#import <SDWebImage/SDWebImage.h>
+#import "MBProgressHUD.h"
+#import "SVProgressHUD.h"
+#import "MJExtension.h"
+#import "UIView+Toast.h"
+
+#import "XQQMineServiceTypes.h"
+#import "XQQCEnums.h"
+#import "XQQBUOIWNDefine.h"
+#import "XQQUOIWNConstant.h"
+#import "XQQCommonHelper.h"
+
+#import "NSString+Extension.h"
+#import "UIColor+Gradient.h"
+#import "UIView+Extension.h"
+#import "UIFont+YH.h"
+#import "UIColor+YH.h"
+
+#import "XQQODJNLockStatusManager.h"
+#import "ObjectModel.h"
+
+// 服务边界：页面通过 XQQMineProfile / XQQMineNotify / ... 访问，不直接依赖 SDK
+#import "XQQMineServices.h"
+#import "XQQCUserInfo.h"
+#import "XQQCGroupInfo.h"
+#import "XQQUserExtraInfo.h"
+#import "XQQIUEHImage.h"
+#import "XQQQrCodeHelper.h"
+#import "LBXScanNative.h"
+#import "XQQOHJNSelectNoDisturbingTimeVC.h"
+#import "UIImage+ERCategory.h"
+#import "QOEUAPinyinUtility.h"
+
+#endif /* __OBJC__ */
+
+#endif /* AQXQ26_Prefix_pch */

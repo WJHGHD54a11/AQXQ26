@@ -1,0 +1,27 @@
+//
+//  XQQCJsonSerializer.m
+//  WFChatClient
+//
+//  Created by Rain on 2022/5/31.
+//  Copyright © 2022 WildFireChat. All rights reserved.
+//
+
+#import "XQQCJsonSerializer.h"
+
+@implementation XQQCJsonSerializer
+- (id)toJsonObj {
+    return [[NSMutableDictionary alloc] init];
+}
+
+- (void)setDict:(NSMutableDictionary *)dict key:(NSString *)key longlongValue:(long long)longlongValue {
+    if (longlongValue > 9007199254740991LL) {
+        dict[key] = [NSString stringWithFormat:@"%lld", longlongValue];
+    } else {
+        dict[key] = @(longlongValue);
+    }
+}
+
+- (NSString *)toJsonStr {
+    return [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:[self toJsonObj] options:kNilOptions error:nil] encoding:NSUTF8StringEncoding];
+}
+@end

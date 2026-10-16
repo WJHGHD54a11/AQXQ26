@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XQQMKDIOFZTDeviceVC">
+            <connections>
+                <outlet property="descL" destination="fuV-DD-3Cg" id="UpU-1i-yTX"/>
+                <outlet property="tableView" destination="shF-fn-mtA" id="KPo-jP-hi1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="该页面展示的是您登陆过的所有设备，请注意您的账号是否在陌生设备上登陆过，谨防被盗！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuV-DD-3Cg">
+                    <rect key="frame" x="20" y="133" width="353" height="39.333333333333343"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                    <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="shF-fn-mtA">
+                    <rect key="frame" x="0.0" y="182.33333333333331" width="393" height="601.66666666666674"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fuV-DD-3Cg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="B2y-xo-Xff"/>
+                <constraint firstItem="fuV-DD-3Cg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="F0I-nU-YMh"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="shF-fn-mtA" secondAttribute="bottom" id="RaV-hd-yKw"/>
+                <constraint firstItem="shF-fn-mtA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Wtc-ol-9lN"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="shF-fn-mtA" secondAttribute="trailing" id="ZHP-1O-B9m"/>
+                <constraint firstItem="shF-fn-mtA" firstAttribute="top" secondItem="fuV-DD-3Cg" secondAttribute="bottom" constant="10" id="iMs-RR-REb"/>
+                <constraint firstItem="fuV-DD-3Cg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="15" id="yeQ-ib-ngo"/>
+            </constraints>
+            <point key="canvasLocation" x="8" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

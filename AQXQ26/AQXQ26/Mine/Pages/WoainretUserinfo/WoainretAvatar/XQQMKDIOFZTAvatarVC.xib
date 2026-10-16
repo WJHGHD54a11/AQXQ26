@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XQQMKDIOFZTAvatarVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="waxiouvAvatarV" destination="6Gj-VP-HuP" id="MEz-2E-dnT"/>
+                <outlet property="waxiouvCV" destination="2lT-HE-4t9" id="iq1-Xm-Dc7"/>
+                <outlet property="waxiouvCancelBtn" destination="94f-Sf-omd" id="GRl-CT-tDm"/>
+                <outlet property="waxiouvLayout" destination="iwN-Pd-OHX" id="MLo-Yd-H7W"/>
+                <outlet property="waxiouvLineLeft" destination="4wY-J7-TGO" id="q5F-xB-EXN"/>
+                <outlet property="waxiouvSaveBtn" destination="gvI-Xm-o0I" id="zgb-Mc-3vj"/>
+                <outlet property="waxiouvTypeV" destination="DSj-3m-6ZR" id="jdR-8x-6jI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waxiouvAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="6Gj-VP-HuP">
+                    <rect key="frame" x="121.66666666666669" y="134" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6Gj-VP-HuP" secondAttribute="height" multiplier="1:1" id="GmN-vT-w0K"/>
+                        <constraint firstAttribute="width" constant="150" id="vhu-h8-WRv"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSj-3m-6ZR">
+                    <rect key="frame" x="15" y="296" width="363" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buG-LB-ms3">
+                            <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="自定义">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="waxiouvTypes:" destination="-1" eventType="touchUpInside" id="5Es-lE-8tU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E34-ZD-PAd">
+                            <rect key="frame" x="90.666666666666686" y="0.0" width="91" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="卡通人物">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="waxiouvTypes:" destination="-1" eventType="touchUpInside" id="4F5-Ao-JMu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbl-SB-bso">
+                            <rect key="frame" x="181.66666666666666" y="0.0" width="90.666666666666657" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="潮流IP">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="waxiouvTypes:" destination="-1" eventType="touchUpInside" id="TYO-4d-IAs"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O19-ze-clt">
+                            <rect key="frame" x="272.33333333333331" y="0.0" width="90.666666666666686" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="3D">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="waxiouvTypes:" destination="-1" eventType="touchUpInside" id="FGd-eh-IAH"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waxiouvLine" translatesAutoresizingMaskIntoConstraints="NO" id="ObB-Wt-xap">
+                            <rect key="frame" x="35.333333333333336" y="40" width="20" height="5"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="E34-ZD-PAd" secondAttribute="bottom" id="1nN-JN-c2W"/>
+                        <constraint firstItem="ObB-Wt-xap" firstAttribute="leading" secondItem="DSj-3m-6ZR" secondAttribute="leading" constant="35.329999999999998" id="4wY-J7-TGO"/>
+                        <constraint firstItem="zbl-SB-bso" firstAttribute="leading" secondItem="E34-ZD-PAd" secondAttribute="trailing" id="4yP-TM-c54"/>
+                        <constraint firstItem="O19-ze-clt" firstAttribute="width" secondItem="buG-LB-ms3" secondAttribute="width" id="6lc-gy-9Fg"/>
+                        <constraint firstItem="E34-ZD-PAd" firstAttribute="leading" secondItem="buG-LB-ms3" secondAttribute="trailing" id="9JW-IO-2Me"/>
+                        <constraint firstItem="buG-LB-ms3" firstAttribute="top" secondItem="DSj-3m-6ZR" secondAttribute="top" id="Aa8-OC-la9"/>
+                        <constraint firstAttribute="height" constant="50" id="ESH-KT-zlL"/>
+                        <constraint firstAttribute="bottom" secondItem="buG-LB-ms3" secondAttribute="bottom" id="KxH-cL-8AT"/>
+                        <constraint firstAttribute="trailing" secondItem="O19-ze-clt" secondAttribute="trailing" id="Npu-ZC-ECD"/>
+                        <constraint firstAttribute="bottom" secondItem="O19-ze-clt" secondAttribute="bottom" id="UHa-Gc-O29"/>
+                        <constraint firstItem="E34-ZD-PAd" firstAttribute="top" secondItem="DSj-3m-6ZR" secondAttribute="top" id="aHf-Tq-45e"/>
+                        <constraint firstAttribute="bottom" secondItem="ObB-Wt-xap" secondAttribute="bottom" constant="5" id="kGW-5c-VFz"/>
+                        <constraint firstItem="E34-ZD-PAd" firstAttribute="width" secondItem="buG-LB-ms3" secondAttribute="width" id="mOL-Yy-9Nd"/>
+                        <constraint firstItem="zbl-SB-bso" firstAttribute="top" secondItem="DSj-3m-6ZR" secondAttribute="top" id="nLd-Nr-hm7"/>
+                        <constraint firstAttribute="bottom" secondItem="zbl-SB-bso" secondAttribute="bottom" id="nTZ-LD-sC6"/>
+                        <constraint firstItem="O19-ze-clt" firstAttribute="top" secondItem="DSj-3m-6ZR" secondAttribute="top" id="oOt-UB-n6J"/>
+                        <constraint firstItem="buG-LB-ms3" firstAttribute="leading" secondItem="DSj-3m-6ZR" secondAttribute="leading" id="r4r-lT-WIU"/>
+                        <constraint firstItem="zbl-SB-bso" firstAttribute="width" secondItem="buG-LB-ms3" secondAttribute="width" id="v8G-1L-axk"/>
+                        <constraint firstItem="O19-ze-clt" firstAttribute="leading" secondItem="zbl-SB-bso" secondAttribute="trailing" id="zTk-uL-0at"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94f-Sf-omd">
+                    <rect key="frame" x="25" y="702" width="156.66666666666666" height="50"/>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="3nM-JK-T9k"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="waxiouvCancel:" destination="-1" eventType="touchUpInside" id="hol-r1-hv9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvI-Xm-o0I">
+                    <rect key="frame" x="211.66666666666663" y="702" width="156.33333333333337" height="50"/>
+                    <color key="backgroundColor" red="0.44068533180000002" green="0.92144507170000001" blue="0.33276236059999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="保存"/>
+                    <connections>
+                        <action selector="waxiouvSave:" destination="-1" eventType="touchUpInside" id="t8E-UG-Nia"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2lT-HE-4t9">
+                    <rect key="frame" x="0.0" y="351" width="393" height="345"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iwN-Pd-OHX">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="DSj-3m-6ZR" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="0kz-2h-yfo"/>
+                <constraint firstItem="6Gj-VP-HuP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3bp-RE-u4L"/>
+                <constraint firstItem="gvI-Xm-o0I" firstAttribute="top" secondItem="94f-Sf-omd" secondAttribute="top" id="42v-tL-Ymo"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="2lT-HE-4t9" secondAttribute="trailing" id="43J-Mx-Thn"/>
+                <constraint firstItem="94f-Sf-omd" firstAttribute="top" secondItem="2lT-HE-4t9" secondAttribute="bottom" constant="6" id="AKd-bC-gJS"/>
+                <constraint firstItem="DSj-3m-6ZR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kth-BA-9ki"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="94f-Sf-omd" secondAttribute="bottom" constant="32" id="LkK-PA-CMN"/>
+                <constraint firstItem="gvI-Xm-o0I" firstAttribute="leading" secondItem="94f-Sf-omd" secondAttribute="trailing" constant="30" id="Qpj-Dl-6oZ"/>
+                <constraint firstItem="94f-Sf-omd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="25" id="RA9-WC-WYH"/>
+                <constraint firstItem="gvI-Xm-o0I" firstAttribute="width" secondItem="94f-Sf-omd" secondAttribute="width" id="VF1-uq-azA"/>
+                <constraint firstItem="2lT-HE-4t9" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="boA-AO-exp"/>
+                <constraint firstItem="DSj-3m-6ZR" firstAttribute="top" secondItem="6Gj-VP-HuP" secondAttribute="bottom" constant="12" id="o0T-ql-mvg"/>
+                <constraint firstItem="2lT-HE-4t9" firstAttribute="top" secondItem="DSj-3m-6ZR" secondAttribute="bottom" constant="5" id="q67-5B-ywB"/>
+                <constraint firstItem="gvI-Xm-o0I" firstAttribute="bottom" secondItem="94f-Sf-omd" secondAttribute="bottom" id="t9A-CE-6nF"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gvI-Xm-o0I" secondAttribute="trailing" constant="25" id="yiw-tU-gdU"/>
+                <constraint firstItem="6Gj-VP-HuP" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="16" id="zRh-NR-Edd"/>
+            </constraints>
+            <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="waxiouvAvatar" width="150" height="150"/>
+        <image name="waxiouvLine" width="20" height="5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

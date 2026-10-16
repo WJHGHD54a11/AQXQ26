@@ -1,0 +1,111 @@
+workflows:
+
+  ios-native-quick-start:
+
+    name: AQXQ26
+
+    max_build_duration: 120
+
+    instance_type: mac_mini_m2
+
+
+    integrations:
+
+      app_store_connect: laozumu
+
+
+    environment:
+
+      ios_signing:
+
+        distribution_type: app_store
+
+        bundle_identifier: com.laozumu.rls
+
+
+      vars:
+
+        BUNDLE_ID: com.laozumu.rls
+
+        # 工程不用 CocoaPods，没有 .xcworkspace，直接用 .xcodeproj
+        XCODE_PROJECT: "AQXQ26/AQXQ26.xcodeproj"
+
+        XCODE_SCHEME: "AQXQ26"
+
+        APP_STORE_APPLE_ID: 6822644050
+
+
+      xcode: latest
+
+
+
+    scripts:
+
+
+      - name: Set up provisioning profiles settings on Xcode project
+
+        script: |
+
+          xcode-project use-profiles --project "$CM_BUILD_DIR/$XCODE_PROJECT"
+
+
+
+      - name: Increment build number
+
+        script: |
+
+          set -e
+          # 查询失败直接报错，不要悄悄回落到 0（否则会用旧 build 号上传被拒）
+          LATEST=$(app-store-connect get-latest-build-number "$APP_STORE_APPLE_ID")
+          NEXT_BUILD=$(( ${LATEST:-0} + 1 ))
+          echo "Latest on App Store Connect: ${LATEST:-0} -> using build $NEXT_BUILD"
+          echo "NEXT_BUILD=$NEXT_BUILD" >> "$CM_ENV"
+
+
+      - name: Build ipa for distribution
+
+        script: |
+
+          xcode-project build-ipa \
+            --project "$CM_BUILD_DIR/$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME" \
+            --archive-flags "CURRENT_PROJECT_VERSION=$NEXT_BUILD" \
+            --disable-xcpretty
+
+
+
+    artifacts:
+
+      - build/ios/ipa/*.ipa
+
+      - /tmp/xcodebuild_logs/*.log
+
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
+
+
+    publishing:
+
+
+      email:
+
+        recipients:
+
+          - 985446278@qq.com
+
+
+        notify:
+
+          success: true
+
+          failure: false
+
+
+
+      app_store_connect:
+
+        auth: integration
+
+        submit_to_testflight: false
+
+        submit_to_app_store: false

@@ -1,0 +1,14 @@
+//
+//  XQQMKDIOFZTCheckInVC.h
+//  WildFireChat
+//
+
+#import "XQQWJEFDOCYMainVC.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface XQQMKDIOFZTCheckInVC : XQQWJEFDOCYMainVC
+
+@end
+
+NS_ASSUME_NONNULL_END
