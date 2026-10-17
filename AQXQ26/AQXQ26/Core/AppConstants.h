@@ -9,8 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// Localized string from WorkSpace.strings. Follows the in-app language choice shared with
-/// the Me module ("CurrentLanguage": 0 system, 1 简体中文, 2 English).
+/// Localized string from WorkSpace.strings, following the system language.
 FOUNDATION_EXPORT NSString *WSLocalized(NSString *key);
 #define WSText(key) WSLocalized(key)
 

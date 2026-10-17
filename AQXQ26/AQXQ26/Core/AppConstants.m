@@ -31,22 +31,7 @@ NSString * const ActivityTypeDataImported      = @"data.imported";
 
 NSString *WSLocalized(NSString *key) {
     if (key.length == 0) return @"";
-    NSInteger language = [NSUserDefaults.standardUserDefaults integerForKey:@"CurrentLanguage"];
-    NSBundle *bundle = NSBundle.mainBundle;
-    if (language == 1 || language == 2) {
-        static NSMutableDictionary<NSNumber *, NSBundle *> *cache;
-        static dispatch_once_t once;
-        dispatch_once(&once, ^{ cache = NSMutableDictionary.new; });
-        @synchronized (cache) {
-            bundle = cache[@(language)];
-            if (!bundle) {
-                NSString *path = [NSBundle.mainBundle pathForResource:(language == 1 ? @"zh-Hans" : @"en") ofType:@"lproj"];
-                bundle = (path ? [NSBundle bundleWithPath:path] : nil) ?: NSBundle.mainBundle;
-                cache[@(language)] = bundle;
-            }
-        }
-    }
-    return [bundle localizedStringForKey:key value:key table:@"WorkSpace"];
+    return [NSBundle.mainBundle localizedStringForKey:key value:key table:@"WorkSpace"];
 }
 
 static NSString *WSPick(NSArray<NSString *> *list, NSInteger index) {

@@ -12,11 +12,9 @@ typedef NS_ENUM(NSInteger, MainTab) {
     MainTabTasks,
     MainTabNotes,
     MainTabFiles,
-    MainTabMe,
 };
 
-/// 首页 · 任务 · 笔记 · 文件 · 我的。Projects / Schedule / Backup open from Home.
-/// The Me tab hosts the module migrated from QXQ; more QXQ modules will be added as tabs later.
+/// 首页 · 任务 · 笔记 · 文件。Projects / Schedule / Backup open from Home.
 @interface MainTabBarController : UITabBarController
 - (UINavigationController *)navigationForTab:(MainTab)tab;
 - (UINavigationController *)selectTab:(MainTab)tab;

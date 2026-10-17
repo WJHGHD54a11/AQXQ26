@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		3870CA023077432D00AC7123 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3870CA013077432D00AC7123 /* SDWebImage.xcframework */; };
-		3870CA033077432D00AC7123 /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3870CA013077432D00AC7123 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		3870CA043077432D00AC7123 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -18,7 +13,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3870CA033077432D00AC7123 /* SDWebImage.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -27,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		3870C93D3077432D00AC7123 /* AQXQ26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AQXQ26.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3870CA013077432D00AC7123 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Frameworks/SDWebImage.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -56,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3870CA023077432D00AC7123 /* SDWebImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +75,6 @@
 		3870CA053077432D00AC7123 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3870CA013077432D00AC7123 /* SDWebImage.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,14 +168,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				GCC_PREFIX_HEADER = "AQXQ26/MineSupport/AQXQ26-Prefix.pch";
+				CURRENT_PROJECT_VERSION = 3;
+				GCC_PREFIX_HEADER = "AQXQ26/Core/WorkSpace-Prefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AQXQ26/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄头像和反馈图片";
-				INFOPLIST_KEY_NSContactsUsageDescription = "用于识别通讯录好友";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "用于保存二维码图片";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "用于选择头像、聊天背景和反馈图片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -212,14 +199,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				GCC_PREFIX_HEADER = "AQXQ26/MineSupport/AQXQ26-Prefix.pch";
+				CURRENT_PROJECT_VERSION = 3;
+				GCC_PREFIX_HEADER = "AQXQ26/Core/WorkSpace-Prefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AQXQ26/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍摄头像和反馈图片";
-				INFOPLIST_KEY_NSContactsUsageDescription = "用于识别通讯录好友";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "用于保存二维码图片";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "用于选择头像、聊天背景和反馈图片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
