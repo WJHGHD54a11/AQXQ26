@@ -76,7 +76,7 @@
     if (!tabs) return;
     BOOL isTask = [kind isEqualToString:@"task"];
     WSObjectKind objectKind = isTask ? WSObjectKindTask : WSObjectKindSchedule;
-    UINavigationController *nav = [tabs selectTab:isTask ? MainTabTasks : MainTabHome];
+    UINavigationController *nav = isTask ? [tabs selectNotebookSection:0] : [tabs selectTab:MainTabHome];
     [nav popToRootViewControllerAnimated:NO];
     [self openKind:objectKind uuid:uuid from:nav.topViewController];
 }

@@ -39,6 +39,8 @@ typedef NS_ENUM(NSInteger, WSFormRowType) {
 @property (nonatomic, copy, nullable) void (^onTap)(WSFormRow *row);
 @property (nonatomic, copy, nullable) void (^onChange)(WSFormRow *row);
 @property (nonatomic) BOOL destructive;
+/// Keyboard for WSFormRowText (default UIKeyboardTypeDefault).
+@property (nonatomic) UIKeyboardType keyboardType;
 
 + (instancetype)type:(WSFormRowType)type key:(NSString *)key title:(NSString *)title value:(nullable id)value;
 @end

@@ -84,6 +84,11 @@ NSInteger const BackupFormatVersion = 1;
             @"schedules":      [self all:@"Schedule" skip:common in:context],
             @"templates":      [self all:@"Template" skip:common in:context],
             @"files":          [self all:@"FileItem" skip:[common setByAddingObject:@"storedName"] in:context],
+            @"vehicles":       [self all:@"Vehicle" skip:[common setByAddingObjectsFromArray:@[@"records", @"fuelLogs", @"plans", @"trips"]] in:context],
+            @"serviceRecords": [self all:@"ServiceRecord" skip:common in:context],
+            @"fuelLogs":       [self all:@"FuelLog" skip:common in:context],
+            @"maintenancePlans": [self all:@"MaintenancePlan" skip:common in:context],
+            @"trips":          [self all:@"Trip" skip:common in:context],
         };
         [context reset];
 

@@ -8,10 +8,10 @@
 #import "AppThemeManager.h"
 #import "WSUIKit.h"
 #import "DashboardViewController.h"
-#import "TaskListViewController.h"
-#import "FileListViewController.h"
-#import "NoteListViewController.h"
+#import "NotebookNavigationController.h"
+#import "TripsViewController.h"
 #import "TaskManager.h"
+#import "GarageViewController.h"
 
 @implementation MainTabBarController
 
@@ -26,15 +26,19 @@
     self.tabBar.scrollEdgeAppearance = appearance;
     self.tabBar.tintColor = theme.accent;
 
-    NSArray *roots = @[DashboardViewController.new, TaskListViewController.new, NoteListViewController.new,
-                       FileListViewController.new];
-    NSArray *titles = @[WSText(@"Home"), WSText(@"Tasks"), WSText(@"Notes"), WSText(@"Files")];
-    NSArray *symbols = @[@"square.grid.2x2", @"checkmark.circle", @"note.text", @"doc"];
+    NSArray *roots = @[DashboardViewController.new, GarageViewController.new, TripsViewController.new, NSNull.null];
+    NSArray *titles = @[WSText(@"Home"), WSText(@"Garage"), WSText(@"Trips"), WSText(@"Notebook")];
+    NSArray *symbols = @[@"square.grid.2x2", @"car", @"map", @"square.stack"];
     NSMutableArray *navs = NSMutableArray.new;
     for (NSUInteger i = 0; i < roots.count; i++) {
-        UIViewController *root = roots[i];
-        root.title = titles[i];
-        UINavigationController *nav = [[NavigationController alloc] initWithRootViewController:root];
+        UINavigationController *nav;
+        if (i == MainTabNotebook) {
+            nav = [[NotebookNavigationController alloc] init];
+        } else {
+            UIViewController *root = roots[i];
+            root.title = titles[i];
+            nav = [[NavigationController alloc] initWithRootViewController:root];
+        }
         NSString *selected = [symbols[i] stringByAppendingString:@".fill"];
         nav.tabBarItem = [[UITabBarItem alloc] initWithTitle:titles[i] image:[UIImage ws_symbol:symbols[i]]
                                                selectedImage:[UIImage ws_symbol:selected] ?: [UIImage ws_symbol:symbols[i]]];
@@ -50,8 +54,8 @@
 /// Overdue count on the Tasks tab.
 - (void)refreshBadge {
     NSUInteger overdue = [TaskManager.shared countForFilter:TaskFilterOverdue];
-    self.viewControllers[MainTabTasks].tabBarItem.badgeValue = overdue ? [NSString stringWithFormat:@"%lu", (unsigned long)overdue] : nil;
-    self.viewControllers[MainTabTasks].tabBarItem.badgeColor = AppThemeManager.shared.danger;
+    self.viewControllers[MainTabNotebook].tabBarItem.badgeValue = overdue ? [NSString stringWithFormat:@"%lu", (unsigned long)overdue] : nil;
+    self.viewControllers[MainTabNotebook].tabBarItem.badgeColor = AppThemeManager.shared.danger;
 }
 
 - (UINavigationController *)navigationForTab:(MainTab)tab {
@@ -62,6 +66,12 @@
     if (self.presentedViewController) [self dismissViewControllerAnimated:NO completion:nil];
     self.selectedIndex = tab;
     return [self navigationForTab:tab];
+}
+
+- (UINavigationController *)selectNotebookSection:(NSInteger)section {
+    NotebookNavigationController *nav = (NotebookNavigationController *)[self selectTab:MainTabNotebook];
+    if ([nav isKindOfClass:NotebookNavigationController.class]) [nav showSection:section];
+    return nav;
 }
 
 @end

@@ -24,9 +24,17 @@
 #import "Project.h"
 #import "Schedule.h"
 #import <UniformTypeIdentifiers/UniformTypeIdentifiers.h>
+#import "GarageManager.h"
+#import "GarageCatalog.h"
+#import "GarageCharts.h"
+#import "Vehicle.h"
+#import "MaintenancePlan.h"
+#import "MainTabBarController.h"
+#import "RootViewController.h"
 
 typedef NS_ENUM(NSInteger, DashSection) {
-    DashSectionToday = 0,
+    DashSectionGarage = 0,
+    DashSectionToday,
     DashSectionTaskSummary,
     DashSectionProjects,
     DashSectionQuick,
@@ -150,6 +158,7 @@ typedef NS_ENUM(NSInteger, DashSection) {
 
 - (NSString *)titleForSection:(DashSection)section {
     switch (section) {
+        case DashSectionGarage:      return WSText(@"My Car");
         case DashSectionToday:       return WSText(@"Today");
         case DashSectionTaskSummary: return WSText(@"Task Summary");
         case DashSectionProjects:    return WSText(@"Projects");
@@ -229,6 +238,29 @@ typedef NS_ENUM(NSInteger, DashSection) {
                       symbol:@"sun.max" color:t.warning accessory:nil];
         return;
     }
+    if ([item.kind isEqualToString:@"garageInfo"]) {
+        Vehicle *v = GarageManager.shared.currentVehicle;
+        if (!v) {
+            [cell configureTitle:WSText(@"Add your car") subtitle:WSText(@"Track maintenance, fuel economy and running costs")
+                          symbol:@"car.fill" color:t.accent accessory:nil];
+            return;
+        }
+        double health = [GarageManager.shared healthFor:v];
+        NSString *sub = [NSString stringWithFormat:@"%@ · %@ %.0f%%", [GarageManager formatDistance:v.odometer], WSText(@"Health"), health * 100];
+        [cell configureTitle:v.name subtitle:sub symbol:@"car.fill" color:[GarageGaugeView colorForHealth:health] accessory:nil];
+        return;
+    }
+    if ([item.kind isEqualToString:@"garagePlan"]) {
+        for (PlanStatus *st in [GarageManager.shared upcomingAcrossVehicles:3]) {
+            if (![st.plan.objectID isEqual:item.ref]) continue;
+            NSString *title = [NSString stringWithFormat:@"%@ · %@", st.item.name ?: st.plan.itemKey, st.plan.vehicle.name];
+            [cell configureTitle:title subtitle:st.remainingText symbol:st.item.symbol ?: @"wrench.fill"
+                           color:[GarageGaugeView colorForHealth:st.health] accessory:[NSString stringWithFormat:@"%.0f%%", st.health * 100]];
+            return;
+        }
+        [cell configureTitle:@"" subtitle:nil symbol:@"wrench.fill" color:t.textTertiary accessory:nil];
+        return;
+    }
     if ([item.kind isEqualToString:@"progress"]) {
         [cell configureTitle:WSText(@"Overall Progress")
                     subtitle:[NSString stringWithFormat:WSText(@"%lu active · %lu completed projects"), (unsigned long)s.activeProjects, (unsigned long)s.completedProjects]
@@ -271,6 +303,18 @@ typedef NS_ENUM(NSInteger, DashSection) {
         NSDate *d = [o.entity.attributesByName objectForKey:@"updatedAt"] ? [o valueForKey:@"updatedAt"] : nil;
         return [NSString stringWithFormat:@"%f", d.timeIntervalSince1970];
     };
+
+    // My Car: current vehicle + the most urgent maintenance across vehicles
+    Vehicle *car = GarageManager.shared.currentVehicle;
+    NSString *carVersion = car ? [NSString stringWithFormat:@"%@-%f-%f-%d", ver(car), car.odometer, [GarageManager.shared healthFor:car], GarageManager.usesMiles] : @"none";
+    NSMutableArray *garage = [NSMutableArray arrayWithObject:[DashItem kind:@"garageInfo" ref:@0 version:carVersion]];
+    for (PlanStatus *st in [GarageManager.shared upcomingAcrossVehicles:3]) {
+        if (!st.isDueSoon) continue;
+        [garage addObject:[DashItem kind:@"garagePlan" ref:st.plan.objectID
+                                 version:[NSString stringWithFormat:@"%@-%.4f-%d", ver(st.plan), st.health, GarageManager.usesMiles]]];
+    }
+    [snap appendSectionsWithIdentifiers:@[@(DashSectionGarage)]];
+    [snap appendItemsWithIdentifiers:garage intoSectionWithIdentifier:@(DashSectionGarage)];
 
     NSMutableArray *today = [NSMutableArray arrayWithObject:[DashItem kind:@"todayInfo" ref:@0
         version:[NSString stringWithFormat:@"%lu-%lu-%lu-%lu", (unsigned long)s.dueTodayCount, (unsigned long)s.completedTodayCount, (unsigned long)s.todayTasks.count, (unsigned long)s.todaySchedules.count]]];
@@ -324,6 +368,8 @@ typedef NS_ENUM(NSInteger, DashSection) {
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([item.kind isEqualToString:@"progress"]) {
         [self.navigationController pushViewController:[[ProjectListViewController alloc] initWithScope:ProjectListScopeCurrent] animated:YES];
+    } else if ([item.kind isEqualToString:@"garageInfo"] || [item.kind isEqualToString:@"garagePlan"]) {
+        [RootViewController.current.tabs selectTab:MainTabGarage];
     } else if ([item.kind isEqualToString:@"todayInfo"]) {
         [self.navigationController pushViewController:[[TaskListViewController alloc] initWithFilter:TaskFilterToday] animated:YES];
     } else {

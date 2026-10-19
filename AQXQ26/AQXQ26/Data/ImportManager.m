@@ -57,7 +57,12 @@ static NSUInteger const kMaxBackupBytes = 50 * 1024 * 1024;
              [WSImportSection key:@"notes" entity:@"Note" required:@[@"uuid", @"title"]],
              [WSImportSection key:@"schedules" entity:@"Schedule" required:@[@"uuid", @"title", @"startTime"]],
              [WSImportSection key:@"templates" entity:@"Template" required:@[@"uuid", @"name"]],
-             [WSImportSection key:@"files" entity:@"FileItem" required:@[@"uuid", @"name"]]];
+             [WSImportSection key:@"files" entity:@"FileItem" required:@[@"uuid", @"name"]],
+             [WSImportSection key:@"vehicles" entity:@"Vehicle" required:@[@"uuid", @"name"]],
+             [WSImportSection key:@"serviceRecords" entity:@"ServiceRecord" required:@[@"uuid", @"date"]],
+             [WSImportSection key:@"fuelLogs" entity:@"FuelLog" required:@[@"uuid", @"date"]],
+             [WSImportSection key:@"maintenancePlans" entity:@"MaintenancePlan" required:@[@"uuid", @"itemKey"]],
+             [WSImportSection key:@"trips" entity:@"Trip" required:@[@"uuid", @"date"]]];
 }
 
 - (NSError *)error:(NSString *)message {
@@ -252,7 +257,7 @@ static NSUInteger const kMaxBackupBytes = 50 * 1024 * 1024;
     NSDictionary<NSString *, NSNumber *> *limits = @{@"Task.status": @3, @"Task.priority": @3, @"Task.repeatRule": @5,
                                                      @"Project.status": @4, @"Project.priority": @3,
                                                      @"Schedule.kind": @4, @"Schedule.status": @2, @"Schedule.repeatRule": @5,
-                                                     @"Template.kind": @2};
+                                                     @"Template.kind": @2, @"Vehicle.fuelType": @2, @"ServiceRecord.category": @7, @"Trip.purpose": @4};
     [limits enumerateKeysAndObjectsUsingBlock:^(NSString *path, NSNumber *max, BOOL *stop) {
         NSArray *parts = [path componentsSeparatedByString:@"."];
         if (![o.entity.name isEqualToString:parts[0]]) return;

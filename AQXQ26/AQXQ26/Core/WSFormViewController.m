@@ -110,6 +110,7 @@
     self.textView.hidden = !area;
     self.field.placeholder = row.placeholder ?: row.title;
     self.field.text = row.value;
+    self.field.keyboardType = row.keyboardType;
     self.field.accessibilityLabel = row.title;
     self.textView.text = row.value;
     self.textView.accessibilityLabel = row.title;
